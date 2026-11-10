@@ -1,21 +1,22 @@
+
 # ResearchPilot
 
 ResearchPilot is an AI-powered research workflow built with **Make.com, Google Gemini, Supabase, Telegram, arXiv, and Gmail**.
 
 It automates two connected stages of an academic research workflow:
 
-1. **Research topic discovery:** generates five personalized research topics every day and asks the user to select one through Telegram.
-2. **Research paper analysis:** retrieves papers related to the selected topic, performs a focused critical review, emails the report, and stores the results in Supabase.
+1. **Research topic discovery:** Generates five personalized research topics every day and asks the user to select one through Telegram.
+2. **Research paper analysis:** Retrieves papers related to the selected topic, performs a focused critical review, emails the report, and stores the results in Supabase.
 
 ## Live Make.com Scenarios
 
 The following links open the publicly shared Make.com scenario blueprints.
 
-| Scenario | Responsibility | Public link |
+| Scenario | Responsibility | Public Link |
 |---|---|---|
-| **ResearchPilot Front** | Scheduled topic discovery: fetches recent research context, generates five suggestions with Gemini, stores them in Supabase, and sends the options to Telegram. | [View ResearchPilot Front](https://eu1.make.com/public/shared-scenario/HnN4tlmWq4o/research-pilot-front) |
-| **Integration Telegram Bot** | Handles Telegram replies, validates the user's topic selection, rejects invalid input, and records the selected topic. | [View Integration Telegram Bot](https://eu1.make.com/public/shared-scenario/gUMV9dxKcZO/integration-telegram-bot) |
-| **ResearchPilot Backend** | Retrieves the selected topic, searches arXiv, parses paper data, uses Gemini for critical analysis, sends the email report, and stores research results in Supabase. | [View ResearchPilot Backend](https://eu1.make.com/public/shared-scenario/Fvn22Rd6d4j/research-pilot-backend) |
+| **ResearchPilot Front** | Scheduled topic discovery: fetches recent research context, generates five suggestions with Gemini, stores them in Supabase, and sends the options to Telegram. | [View Scenario](https://eu1.make.com/public/shared-scenario/HnN4tlmWq4o/research-pilot-front) |
+| **Integration Telegram Bot** | Handles Telegram replies, validates the user's topic selection, rejects invalid input, and records the selected topic. | [View Scenario](https://eu1.make.com/public/shared-scenario/gUMV9dxKcZO/integration-telegram-bot) |
+| **ResearchPilot Backend** | Retrieves the selected topic, searches arXiv, parses paper data, uses Gemini for critical analysis, sends the email report, and stores research results in Supabase. | [View Scenario](https://eu1.make.com/public/shared-scenario/Fvn22Rd6d4j/research-pilot-backend) |
 
 > These are public scenario-inspection links, not links to a hosted ResearchPilot web application. They allow visitors to inspect the shared Make.com scenarios.
 
@@ -50,7 +51,7 @@ flowchart TD
 - Saves the suggestions in the `suggested_topics` table.
 - Sends the five numbered choices to the user's Telegram chat.
 
-### 2. Integration Telegram Bot — event-driven
+### 2. Integration Telegram Bot — Event-Driven
 
 - Watches for incoming Telegram messages.
 - Checks whether a topic-selection session is awaiting a response.
@@ -73,12 +74,12 @@ flowchart TD
 
 | Component | Technology | Purpose |
 |---|---|---|
-| Workflow automation | Make.com | Scheduling, routing, API orchestration, and data processing |
+| Workflow Automation | Make.com | Scheduling, routing, API orchestration, and data processing |
 | Generative AI | Google Gemini | Topic generation and critical paper analysis |
 | Database | Supabase / PostgreSQL | Suggested topics, selected topics, and research records |
-| User interaction | Telegram Bot API | Topic delivery and human selection |
-| Paper discovery | arXiv API | Research paper search and retrieval |
-| Email delivery | Gmail | Delivery of research analysis reports |
+| User Interaction | Telegram Bot API | Topic delivery and human selection |
+| Paper Discovery | arXiv API | Research paper search and retrieval |
+| Email Delivery | Gmail | Delivery of research analysis reports |
 
 ## Human-in-the-Loop Design
 
@@ -93,10 +94,8 @@ The selection workflow is designed to:
 
 ## Repository Structure
 
-The documentation repository is organized as follows:
-
 ```text
-ResearchPilot-docs/
+ResearchPilot/
 ├── README.md
 ├── architecture.md
 ├── backend-paper-analysis.md
@@ -137,7 +136,31 @@ ResearchPilot-docs/
 
 ## Screenshots
 
-The [`screenshots/`](screenshots/) directory contains visual evidence of the Make.com workflows, Telegram interaction, and generated email reports. See [screenshots.md](screenshots.md) for the image index.
+### 1. Telegram Bot Interaction
+
+![Telegram Bot Interaction](screenshots/telegram_chat.png)
+
+### 2. ResearchPilot Front Workflow
+
+![ResearchPilot Front Workflow](screenshots/ResearchPilot_front.png)
+
+### 3. Telegram Integration Workflow
+
+![Telegram Integration Workflow](screenshots/Integration_Telegram_Bot.png)
+
+### 4. ResearchPilot Backend Workflow
+
+![ResearchPilot Backend Workflow](screenshots/ResearchPilot_Backend.png)
+
+### 5. Generated Research Email
+
+![Generated Research Email](screenshots/summary_email.png)
+
+### 6. Research Summary
+
+![Research Summary](screenshots/email1.png)
+
+For the screenshot index and additional context, see [screenshots.md](screenshots.md).
 
 ## Security Considerations
 
